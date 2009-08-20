@@ -49,7 +49,7 @@ Minesweeper
 		window = GUI.window.new("Minesweeper", Rect(400,400,windowWidth,500 + menuHeight), false);
 				
 		y.do {|iy|
-			x.do {|ix|
+			x.do {|ix|
 				mineField.put(ix,iy, MineButton.new(ix, iy, this));
 			};
 		};

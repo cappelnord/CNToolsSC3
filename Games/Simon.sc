@@ -1,8 +1,7 @@
-/*
-Simon for SuperCollider, Version 1.01
-
-Written by Patrick Borgeat <patrick@borgeat.de>, http://www.cappel-nord.de
-
+/*	
+	Simon in SuperCollider3
+	Written by Patrick Borgeat <patrick@borgeat.de>
+	Last modified: 08/27/2009
 */
 
 Simon
@@ -202,7 +201,8 @@ Simon
 	
 		if(playHead < noteArray.size,
 		{
-			this.buttonAction(noteArray[playHead], true);			playHead = playHead + 1;
+			this.buttonAction(noteArray[playHead], true);
+			playHead = playHead + 1;
 			{if(windowOpen == true, {this.simonsTurn;});}.defer(this.calcSimonsWait);
 		},
 		{

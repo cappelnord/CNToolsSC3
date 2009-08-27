@@ -1,3 +1,9 @@
+/*	
+	Minesweeper in SuperCollider3
+	Written by Patrick Borgeat <patrick@borgeat.de>
+	Last modified: 08/27/2009
+*/
+
 Minesweeper
 {
 	var <>window;
@@ -59,7 +65,7 @@ Minesweeper
 		resetButton.action_({this.resetGame;});
 		
 		modeButton = GUI.button.new(window, Rect(100,10,120,30));
-		modeButton.states_([["Feld aufdecken", Color.black, Color.red], ["Mine markieren", Color.black, Color.green]]);
+		modeButton.states_([["Mark clear spots", Color.black, Color.red], ["Mark mines", Color.black, Color.green]]);
 		modeButton.action_({|... args| this.modeAction(*args);});
 		
 		statusLabel = GUI.staticText.new(window, Rect(240, 10,200,30));
@@ -82,14 +88,14 @@ Minesweeper
 		
 		isOver = false;
 	
-		// Minenfeld neutralisieren
+		// reset minefield
 		x.do {|ix|
 			y.do {|iy|
 				mineField.at(ix,iy).reset;
 			};
 		};
 		
-		// Minen setzen
+		// place mines
 		
 		minesInGame = 0;
 		
@@ -105,7 +111,7 @@ Minesweeper
 			});
 		});
 		
-		// Timer Reset und Neustart
+		// reset timer and restart
 				
 		this.stopTimer;		
 		timeElapsed = 0;
@@ -121,7 +127,7 @@ Minesweeper
 	}
 	
 	refreshMenu {
-		statusLabel.string_("Noch nicht markierte Minen: " ++ minesInGame);
+		statusLabel.string_("Not yet marked mines: " ++ minesInGame);
 		
 		this.updateTimer;
 		window.refresh;
@@ -142,7 +148,7 @@ Minesweeper
 				0.15.wait;
 			};
 		}.fork;
-		statusLabel.string_("Gewonnen! Toll!");
+		statusLabel.string_("You win! Suave!");
 		this.stopTimer;
 		isOver = true;
 	}
@@ -175,7 +181,7 @@ Minesweeper
 			if(i.isMarked && i.isMine.not, {i.button.states_([["M", Color.red, Color.grey]]);});
 		};
 		this.stopTimer;
-		statusLabel.string_("Verloren! Schade.");
+		statusLabel.string_("You loose! It's a pity.");
 		window.refresh;
 		isOver = true;
 	}
@@ -260,7 +266,7 @@ MineButton
 			});
 		});
 		
-		// Damit Verlorenmeldung nicht Ÿberschrieben wird ...
+		// for not overwritting the "loose"-message
 		if(game.isOver.not)
 		{
 			game.refreshMenu;
@@ -288,7 +294,7 @@ MineButton
 		});
 	}
 	
-	// Rekursionen werden mit sound=false aufgerufen, dadurch klingt nur der Ursprung
+	// recursions are called with sound=false --> only the origin will make a sound
 	tryField {|sound=false|
 		var numNearMines;
 		

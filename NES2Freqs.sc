@@ -20,11 +20,24 @@
 	}
 }
 
-+ SequenceableCollection {
-
-	cpsnes { ^this.performUnaryOp('cpsnes') }
++ SequenceableCollection 
+{
+	cpsnes  { ^this.performUnaryOp('cpsnes') }
 	midines { ^this.performUnaryOp('midines') }
-	nescps { ^this.performUnaryOp('nescps') }
+	nescps  { ^this.performUnaryOp('nescps') }
 	nesmidi { ^this.performUnaryOp('nesmidi') }
-	
 }
+
+
+// i don't know if this is too complicated, but it works!
+
++ UGen 
+{	
+	cpsnes  { ^BinaryOpUGen('/', 1790000, BinaryOpUGen('-', BinaryOpUGen('*', this, 16), 1))}
+	midines { ^BinaryOpUGen('/', 1790000, BinaryOpUGen('-', BinaryOpUGen('*', UnaryOpUGen('midicps', this), 16), 1))}
+	nescps  { ^BinaryOpUGen('/', 1790000, BinaryOpUGen('*', BinaryOpUGen('+', this, 1), 16))}
+	nesmidi { ^UnaryOpUGen('cpsmidi', BinaryOpUGen('/', 1790000, BinaryOpUGen('*', BinaryOpUGen('+', this, 1), 16)))}
+}
+
+
+

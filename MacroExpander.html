@@ -15,13 +15,13 @@ p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica}
 p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica; min-height: 17.0px}
 p.p7 {margin: 0.0px 0.0px 0.0px 57.0px; text-indent: -57.0px; font: 12.0px Helvetica}
 p.p8 {margin: 0.0px 0.0px 0.0px 57.0px; text-indent: -57.0px; font: 12.0px Helvetica; min-height: 14.0px}
-p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #ad140d}
-p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #ad140d; min-height: 12.0px}
-p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #001bb9}
-p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; min-height: 12.0px}
-p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco}
+p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #bf0000}
+p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #000000; min-height: 12.0px}
+p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #0000bf}
+p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #000000}
+p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #606060; min-height: 12.0px}
 span.s1 {color: #000000}
-span.s2 {color: #001bb9}
+span.s2 {color: #0000bf}
 span.s3 {color: #606060}
 span.Apple-tab-span {white-space:pre}
 </style>
@@ -65,24 +65,33 @@ span.Apple-tab-span {white-space:pre}
 <p class="p10"><br></p>
 <p class="p9">// returns the current instance</p>
 <p class="p11">MacroExpander<span class="s1">.instance;</span></p>
-<p class="p12"><br></p>
+<p class="p10"><br></p>
 <p class="p9">// returns the Dictionary</p>
-<p class="p13"><span class="s2">MacroExpander</span>.instance.dict;</p>
-<p class="p12"><br></p>
+<p class="p12"><span class="s2">MacroExpander</span>.instance.dict;</p>
+<p class="p10"><br></p>
 <p class="p9">// registers a simple String macro</p>
 <p class="p4"><span class="s2">MacroExpander</span><span class="s1">.put(</span>"test1"<span class="s1">, </span>"This Text will be the replacement!"<span class="s1">);</span></p>
-<p class="p12"><br></p>
+<p class="p10"><br></p>
 <p class="p9">// executes the macro</p>
 <p class="p4">"test1"<span class="s1">.xx</span></p>
-<p class="p12"><br></p>
+<p class="p10"><br></p>
 <p class="p9">// registers a String macro with placeholders</p>
 <p class="p4"><span class="s2">MacroExpander</span><span class="s1">.put(</span>"test2"<span class="s1">, </span>"Hello, my Name is #0#! I live in #1#."<span class="s1">);</span></p>
-<p class="p12"><br></p>
+<p class="p10"><br></p>
 <p class="p9">// executes the Macro giving an argument</p>
 <p class="p4">"test2#Patrick,Karlsruhe"<span class="s1">.xx</span></p>
-<p class="p12"><br></p>
+<p class="p10"><br></p>
 <p class="p9">// registers a Function macro</p>
-<p class="p13"><span class="s2">MacroExpander</span>.put(<span class="s3">"test3"</span>, {<span class="s2">|args|</span> <span class="s2">var</span> ret = <span class="s3">""</span>; args[0].asInteger.do { ret = ret ++ args[1] ++ <span class="s3">"\n"</span>;};ret;});</p>
+<p class="p12"><span class="s2">MacroExpander</span>.put(<span class="s3">"test3"</span>, {<span class="s2">|args|</span> <span class="s2">var</span> ret = <span class="s3">""</span>; args[0].asInteger.do { ret = ret ++ args[1] ++ <span class="s3">"\n"</span>;};ret;});</p>
+<p class="p10"><br></p>
+<p class="p9">// executes the macro giving arguments</p>
 <p class="p4">"test3#10,This line is repeated"<span class="s1">.xx</span></p>
+<p class="p10"><br></p>
+<p class="p9">// register neither a Function nor a String</p>
+<p class="p12"><span class="s2">MacroExpander</span>.put(<span class="s3">"test4"</span>, (1..100));</p>
+<p class="p10"><br></p>
+<p class="p9">// this will print the compile string</p>
+<p class="p4">"test4"<span class="s1">.xx</span></p>
+<p class="p13"><br></p>
 </body>
 </html>

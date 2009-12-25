@@ -1,5 +1,11 @@
-MacroExpander {
+/*
+	MacroExpander
+	Written 2009 by Patrick Borgeat <patrick@borgeat.de>
+	http://www.cappel-nord.de
+*/
 
+MacroExpander
+{
 	classvar >instance;
 	
 	var <>dict;
@@ -54,9 +60,11 @@ MacroExpander {
 	
 	parseAndProcess {|cmd|
 		
-		var res, key, args;
+		// multiple exits method
 		
+		var res, key, args;
 		var pos = cmd.find("#");
+		
 		if(pos.isNil, 
 		{
 			key = cmd.toLower;
@@ -68,18 +76,21 @@ MacroExpander {
 		
 		res = dict.at(key);
 		
-		(res.isNil.not).if({
-			res.isKindOf(AbstractFunction).if {
-				^res.value(args, key);
-			};
-			
-			res.isKindOf(String).if {
-				^this.pr_performString(res, args, key);
-			};
-		},{
+		res.isNil.if {
 			("Command '" ++ key ++ "' not found in Macro Dictionary").error;
 			^nil;
-		});
+		};
+		
+		res.isKindOf(AbstractFunction).if {
+			^res.value(args, key);
+		};
+			
+		res.isKindOf(String).if {
+			^this.pr_performString(res, args, key);
+		};
+		
+		// if nothing really makes sense:
+		^res.asCompileString;
 	}
 	
 	// private
@@ -112,6 +123,6 @@ MacroExpander {
 
 + String {
 	xx {
-	MacroExpander.instance.expand(this);
+		MacroExpander.instance.expand(this);
 	}
 }

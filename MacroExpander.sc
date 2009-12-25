@@ -33,11 +33,12 @@ MacroExpander {
 		var replacement = this.parseAndProcess(cmd);
 		
 		(replacement.isNil.not).if {
-			this.replace("\"" ++ cmd ++ "\".xx", replacement.asString);
+			this.pr_replace("\"" ++ cmd ++ "\".xx", replacement.asString);
 		};
 	}
 	
-	replace {|cmd, replacement|
+	// private
+	pr_replace {|cmd, replacement|
 				
 		// this would be more sensible, if it wouldn't try to replace all occurences of the expand cmd. 
 		
@@ -62,7 +63,7 @@ MacroExpander {
 		},
 		{
 			key =  cmd.copyRange(0,pos-1).toLower;
-			args = this.splitArgs(cmd.copyRange(pos + 1, cmd.size));
+			args = this.pr_splitArgs(cmd.copyRange(pos + 1, cmd.size));
 		});
 		
 		res = dict.at(key);
@@ -73,7 +74,7 @@ MacroExpander {
 			};
 			
 			res.isKindOf(String).if {
-				^this.performString(res, args, key);
+				^this.pr_performString(res, args, key);
 			};
 		},{
 			("Command '" ++ key ++ "' not found in Macro Dictionary").error;
@@ -81,13 +82,15 @@ MacroExpander {
 		});
 	}
 	
-	splitArgs{|string|
+	// private
+	pr_splitArgs{|string|
 		string = string ? "";
 		^string.split($,);
 		// some cleanup?
 	}
 	
-	performString{|res, args, key|
+	// private 
+	pr_performString{|res, args, key|
 		var string = res;
 		args.do {|item,i|
 			string = string.replace("#" ++ i ++ "#", item);

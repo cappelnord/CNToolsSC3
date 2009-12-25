@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<meta name="CocoaVersion" content="949.54">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px Helvetica}
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #606060}
+p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica}
+p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica; min-height: 17.0px}
+p.p7 {margin: 0.0px 0.0px 0.0px 57.0px; text-indent: -57.0px; font: 12.0px Helvetica}
+p.p8 {margin: 0.0px 0.0px 0.0px 57.0px; text-indent: -57.0px; font: 12.0px Helvetica; min-height: 14.0px}
+p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #ad140d}
+p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #ad140d; min-height: 12.0px}
+p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #001bb9}
+p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; min-height: 12.0px}
+p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco}
+span.s1 {color: #000000}
+span.s2 {color: #001bb9}
+span.s3 {color: #606060}
+span.Apple-tab-span {white-space:pre}
+</style>
+</head>
+<body>
+<p class="p1"><b>MacroExpander<span class="Apple-tab-span">	</span></b></p>
+<p class="p2"><br></p>
+<p class="p3"><b>superclass: Object</b></p>
+<p class="p2"><br></p>
+<p class="p3">The MacroExpander adds the xx method to Strings. You can call predefined (for example in the startup file) macros, which can be either simple Strings, Strings with placeholders or functions with an arbitrary number of arguments. The macro-command is replaced with the result and selected (for easy execution). It is done to save some typing in Live Coding sessions.</p>
+<p class="p2"><br></p>
+<p class="p3">This is the basic syntax for a macro command, although it doesn't need the hash and arguments at all (for easy String macros).</p>
+<p class="p4">"command#arg1,arg2,arg3"<span class="s1">.xx</span></p>
+<p class="p2"><br></p>
+<p class="p3">It uses the Singleton Pattern. Most common operations are forwardded by class methods to an instance, which is created lazily. All command/macro pairs are stored in a Dictionary.</p>
+<p class="p2"><br></p>
+<p class="p3">It currently only works on Mac OS X and the replacement code is still very buggy.</p>
+<p class="p2"><br></p>
+<p class="p5"><b>Methods:</b></p>
+<p class="p6"><br></p>
+<p class="p7"><b><span class="Apple-tab-span">	</span>*instance</b></p>
+<p class="p8"><b><span class="Apple-tab-span">	</span></b></p>
+<p class="p7"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b>Returns the current instance.</p>
+<p class="p8"><span class="Apple-tab-span">	</span></p>
+<p class="p7"><span class="Apple-tab-span">	</span><b>*put(command, macro)</b></p>
+<p class="p8"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></p>
+<p class="p7"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Registers the macro (which has to be a String or a Function) on the command.</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p7"><span class="Apple-tab-span">	</span>(*)<b>getCommands</b></p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p7"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Get a list of all registrered commands.</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p7"><b><span class="Apple-tab-span">	</span>parseAndProcess(command)</b></p>
+<p class="p8"><span class="Apple-tab-span">	</span></p>
+<p class="p7"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Procces a command (with arguments) and returns the String.</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p5"><b>Code Examples and usage:</b></p>
+<p class="p6"><br></p>
+<p class="p9">// WARNING: Using the macros in a formatted code document (rtf) will mess things up.</p>
+<p class="p10"><br></p>
+<p class="p9">// returns the current instance</p>
+<p class="p11">MacroExpander<span class="s1">.instance;</span></p>
+<p class="p12"><br></p>
+<p class="p9">// returns the Dictionary</p>
+<p class="p13"><span class="s2">MacroExpander</span>.instance.dict;</p>
+<p class="p12"><br></p>
+<p class="p9">// registers a simple String macro</p>
+<p class="p4"><span class="s2">MacroExpander</span><span class="s1">.put(</span>"test1"<span class="s1">, </span>"This Text will be the replacement!"<span class="s1">);</span></p>
+<p class="p12"><br></p>
+<p class="p9">// executes the macro</p>
+<p class="p4">"test1"<span class="s1">.xx</span></p>
+<p class="p12"><br></p>
+<p class="p9">// registers a String macro with placeholders</p>
+<p class="p4"><span class="s2">MacroExpander</span><span class="s1">.put(</span>"test2"<span class="s1">, </span>"Hello, my Name is #0#! I live in #1#."<span class="s1">);</span></p>
+<p class="p12"><br></p>
+<p class="p9">// executes the Macro giving an argument</p>
+<p class="p4">"test2#Patrick,Karlsruhe"<span class="s1">.xx</span></p>
+<p class="p12"><br></p>
+<p class="p9">// registers a Function macro</p>
+<p class="p13"><span class="s2">MacroExpander</span>.put(<span class="s3">"test3"</span>, {<span class="s2">|args|</span> <span class="s2">var</span> ret = <span class="s3">""</span>; args[0].asInteger.do { ret = ret ++ args[1] ++ <span class="s3">"\n"</span>;};ret;});</p>
+<p class="p4">"test3#10,This line is repeated"<span class="s1">.xx</span></p>
+</body>
+</html>

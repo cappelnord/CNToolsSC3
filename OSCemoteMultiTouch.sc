@@ -1,3 +1,12 @@
+/*
+	OSCemoteMultiTouch TUIO class
+	(c) 2009 by Patrick Borgeat <patrick@borgeat.de>
+	http://www.cappel-nord.de
+	
+	Part of CNToolsSC3
+	http://github.com/cappelnord/CNToolsSC3
+*/
+
 OSCemoteMultiTouch : Object
 {
 	var <>startAction, <>setAction, <>stopAction;

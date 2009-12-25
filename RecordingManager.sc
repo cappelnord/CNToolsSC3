@@ -1,3 +1,12 @@
+/*
+	RecordingManager, a GUI for post-processing audiofiles recorded in SuperCollider
+	(c) 2009 by Patrick Borgeat <patrick@borgeat.de>
+	http://www.cappel-nord.de
+	
+	Part of CNToolsSC3
+	http://github.com/cappelnord/CNToolsSC3
+*/
+
 RecordingManager : Object
 {
 	var <>path, <title;

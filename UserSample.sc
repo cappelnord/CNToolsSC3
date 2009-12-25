@@ -1,7 +1,8 @@
 UserSample : Object
 {
 	classvar dict;
-	classvar base = "/Users/patrick/Documents/SuperCollider/samples/";
+	// you have to change this in order tu use it properly.
+	classvar <>base = "/Users/patrick/Documents/SuperCollider/samples/";
 	
 	*new {|path|
 		var buf;

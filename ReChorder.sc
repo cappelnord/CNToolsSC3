@@ -1,3 +1,12 @@
+/*
+	ReChorder
+	(c) 2009 by Patrick Borgeat <patrick@borgeat.de>
+	http://www.cappel-nord.de
+	
+	Part of CNToolsSC3
+	http://github.com/cappelnord/CNToolsSC3
+*/
+
 ReChorder : Object
 {
 	var <>server;
@@ -106,7 +115,7 @@ ReChorder : Object
 				item.free;
 				buffersToDelete.remove(item);
 			};
-		}.defer(release * 1.2); // Etwas Sicherheitsabstand.
+		}.defer(release * 1.2); // some security space
 	}
 	
 	set {|symbol, value|
@@ -131,12 +140,12 @@ ReChorder : Object
 			
 			{
 				bufferToFree.free;
-			}.defer(release * 1.2); // Etwas Sicherheitsabstand.
+			}.defer(release * 1.2); // some security space
 		});
 		
 	}
 	
-	freeLast {|releaseBuffer = true| // Prinzipiell Kopie von deleteFirst
+	freeLast {|releaseBuffer = true| // copy of freeFirst
 	
 		var bufferToFree, synthToRelease;
 		
@@ -151,11 +160,11 @@ ReChorder : Object
 			
 			{
 				bufferToFree.free;
-			}.defer(release * 1.2); // Etwas Sicherheitsabstand.
+			}.defer(release * 1.2); // some security space
 		});
 	}
 	
-	// Im Endeffekt kšnnte es irgendwann sinvoller sein eine freeSynth und freeBuffer Methode zu nehmen. Mal sehen, im Moment scheint dies sinnvoller!
+	// maybe it would make more sense to use a freeSynth and freeBuffer method, but it works nice that way at the moment.
 }
 
 GrainReChorder : ReChorder

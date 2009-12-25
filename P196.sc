@@ -1,3 +1,12 @@
+/*
+	P196 (String based Integer addition, palindrome check and better reverse addition)
+	(c) 2009 by Patrick Borgeat <patrick@borgeat.de>
+	http://www.cappel-nord.de
+	
+	Part of CNToolsSC3
+	http://github.com/cappelnord/CNToolsSC3
+*/
+
 + String {
 	+++ {|anObject|
 	

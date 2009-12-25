@@ -8,84 +8,81 @@
 <meta name="CocoaVersion" content="949.54">
 <style type="text/css">
 p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px Helvetica}
-p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #9d1c12}
-p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #0026b4}
-span.s1 {color: #093aa6}
-span.s2 {color: #0026b4}
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #8f2116}
+p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #002eaf}
+span.s1 {color: #103fa2}
+span.s2 {color: #002eaf}
 span.s3 {color: #000000}
-span.s4 {color: #3d6d1d}
+span.s4 {color: #486b24}
 span.Apple-tab-span {white-space:pre}
 </style>
 </head>
 <body>
 <p class="p1"><b>Simon</b></p>
-<p class="p2"><br></p>
-<p class="p3">Written by Patrick Borgeat &lt;patrick@borgeat.de&gt;, http://www.cappel-nord.de</p>
-<p class="p2"><br></p>
-<p class="p3">This is the game <b>Simon</b> implemented in SuperCollider. You could see it as a little hidden game in SuperCollider. Just repeat everything whatever Simon does by clicking on the buttons or use WASD on your Keyboard.</p>
-<p class="p2"><br></p>
-<p class="p3">Just evaluate ...</p>
-<p class="p2"><br></p>
-<p class="p3"><span class="s1">Simon</span>.says;</p>
-<p class="p2"><br></p>
-<p class="p3">and have a lot of fun :)</p>
-<p class="p2"><br></p>
-<p class="p3">You can also customize the Game. Here some Examples:</p>
-<p class="p2"><br></p>
-<p class="p3">(</p>
-<p class="p2"><br></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g = <span class="s2">Simon</span>.says;</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.waitTime_(0.5);</p>
+<p class="p2">Part of CNToolsSC3: http://github.com/cappelnord/CNToolsSC3</p>
+<p class="p3"><br></p>
+<p class="p2">This is the game <b>Simon</b> implemented in SuperCollider. You could see it as a little hidden game in SuperCollider. Just repeat everything whatever Simon does by clicking on the buttons or use WASD on your Keyboard.</p>
+<p class="p3"><br></p>
+<p class="p2">Just evaluate ...</p>
+<p class="p3"><br></p>
+<p class="p2"><span class="s1">Simon</span>.says;</p>
+<p class="p3"><br></p>
+<p class="p2">and have a lot of fun :)</p>
+<p class="p3"><br></p>
+<p class="p2">You can also customize the Game. Here some Examples:</p>
+<p class="p3"><br></p>
+<p class="p2">(</p>
+<p class="p3"><br></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g = <span class="s2">Simon</span>.says;</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.waitTime_(0.5);</p>
 <p class="p4"><span class="s3"><span class="Apple-tab-span">	</span></span>// How fast should Simon play?</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.waitDecrease_(0.05);</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.waitDecrease_(0.05);</p>
 <p class="p4"><span class="s3"><span class="Apple-tab-span">	</span></span>// How many Seconds should Simon get faster every turn</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.pauseTime_(2);</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.pauseTime_(2);</p>
 <p class="p4"><span class="s3"><span class="Apple-tab-span">	</span></span>// How long should Simon wait after each Round?</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.setAllSynthDefs(<span class="s4">\customSynthDef</span>);</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.setAllSynthDefs(<span class="s4">\customSynthDef</span>);</p>
 <p class="p4"><span class="s3"><span class="Apple-tab-span">	</span></span>// Use a custom SynthDef for all Buttons. Default SynthDef is \simonDefault, provided by the class.</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.setSynthDef(<span class="s4">\top</span>, <span class="s4">\customSynthDef</span>);</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.setSynthDef(<span class="s4">\top</span>, <span class="s4">\customSynthDef</span>);</p>
 <p class="p4"><span class="s3"><span class="Apple-tab-span">	</span></span>// Just use the custom SynthDef for the top-Button. The Symbols for the four buttons are:</p>
 <p class="p4"><span class="s3"><span class="Apple-tab-span">	</span></span>// \top, \bottom, \left, \right</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\top</span>, [<span class="s4">\freq</span>, 440]);</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\top</span>, [<span class="s4">\freq</span>, 440]);</p>
 <p class="p4"><span class="s3"><span class="Apple-tab-span">	</span></span>// Set the Synth-Arguments for each Button.<span class="Apple-converted-space"> </span></p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3">)</p>
-<p class="p2"><br></p>
-<p class="p3"><b>Default Values:<span class="Apple-converted-space"> </span></b></p>
-<p class="p2"><br></p>
-<p class="p3">(</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2">)</p>
+<p class="p3"><br></p>
+<p class="p2"><b>Default Values:<span class="Apple-converted-space"> </span></b></p>
+<p class="p3"><br></p>
+<p class="p2">(</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
 <p class="p5"><span class="s3"><span class="Apple-tab-span">	</span></span>SynthDef<span class="s3">(</span><span class="s4">\simonDefault</span><span class="s3">, {</span>|out = 0, freq = 440, attack = 0.1, release = 0.7, pan = 0|</p>
-<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s2">var</span> env = <span class="s2">EnvGen</span>.kr(<span class="s2">Env</span>.perc(attack, release, 0.5), doneAction:2);</p>
-<p class="p3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s2">Out</span>.ar(out, <span class="s2">Pan2</span>.ar(<span class="s2">Blip</span>.ar(freq,15,env),pan));</p>
-<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>}).store;</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g = <span class="s2">Simon</span>.says;</p>
+<p class="p3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s2">var</span> env = <span class="s2">EnvGen</span>.kr(<span class="s2">Env</span>.perc(attack, release, 0.5), doneAction:2);</p>
+<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="s2">Out</span>.ar(out, <span class="s2">Pan2</span>.ar(<span class="s2">Blip</span>.ar(freq,15,env),pan));</p>
+<p class="p3"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>}).store;</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g = <span class="s2">Simon</span>.says;</p>
 <p class="p4"><span class="s3"><span class="Apple-tab-span">	</span></span>// this will actually overwrite the \simonDefault SynthDef</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.waitTime_(0.4);</p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.pauseTime_(1.2);</p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.waitDecrease_(0.01);</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.setAllSynthDefs(<span class="s4">\simonDefault</span>);</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\bottom</span>, [<span class="s4">\freq</span>, 60.midicps]);</p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\left</span>, [<span class="s4">\freq</span>, 64.midicps, <span class="s4">\pan</span>, -0.4]);</p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\top</span>, [<span class="s4">\freq</span>, 67.midicps]);</p>
-<p class="p3"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\right</span>, [<span class="s4">\freq</span>, 72.midicps, <span class="s4">\pan</span>, 0.4]);</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p3">)</p>
-<p class="p2"><br></p>
-<p class="p3">[Version 1.01]</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.waitTime_(0.4);</p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.pauseTime_(1.2);</p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.waitDecrease_(0.01);</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.setAllSynthDefs(<span class="s4">\simonDefault</span>);</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\bottom</span>, [<span class="s4">\freq</span>, 60.midicps]);</p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\left</span>, [<span class="s4">\freq</span>, 64.midicps, <span class="s4">\pan</span>, -0.4]);</p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\top</span>, [<span class="s4">\freq</span>, 67.midicps]);</p>
+<p class="p2"><span class="Apple-tab-span">	</span>g.setSynthArgs(<span class="s4">\right</span>, [<span class="s4">\freq</span>, 72.midicps, <span class="s4">\pan</span>, 0.4]);</p>
+<p class="p3"><span class="Apple-tab-span">	</span></p>
+<p class="p2">)</p>
 </body>
 </html>

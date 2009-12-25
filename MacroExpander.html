@@ -8,38 +8,39 @@
 <meta name="CocoaVersion" content="949.54">
 <style type="text/css">
 p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px Helvetica}
-p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
 p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #606060}
 p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica}
 p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica; min-height: 17.0px}
 p.p7 {margin: 0.0px 0.0px 0.0px 57.0px; text-indent: -57.0px; font: 12.0px Helvetica}
 p.p8 {margin: 0.0px 0.0px 0.0px 57.0px; text-indent: -57.0px; font: 12.0px Helvetica; min-height: 14.0px}
-p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #bf0000}
-p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #000000; min-height: 12.0px}
-p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #0000bf}
-p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #000000}
+p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #ad140d}
+p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; min-height: 12.0px}
+p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #001bb9}
+p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco}
 p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #606060; min-height: 12.0px}
 span.s1 {color: #000000}
-span.s2 {color: #0000bf}
+span.s2 {color: #001bb9}
 span.s3 {color: #606060}
 span.Apple-tab-span {white-space:pre}
 </style>
 </head>
 <body>
 <p class="p1"><b>MacroExpander<span class="Apple-tab-span">	</span></b></p>
-<p class="p2"><br></p>
-<p class="p3"><b>superclass: Object</b></p>
-<p class="p2"><br></p>
-<p class="p3">The MacroExpander adds the xx method to Strings. You can call predefined (for example in the startup file) macros, which can be either simple Strings, Strings with placeholders or functions with an arbitrary number of arguments. The macro-command is replaced with the result and selected (for easy execution). It is done to save some typing in Live Coding sessions.</p>
-<p class="p2"><br></p>
-<p class="p3">This is the basic syntax for a macro command, although it doesn't need the hash and arguments at all (for easy String macros).</p>
+<p class="p2">Part of CNToolsSC3: http://github.com/cappelnord/CNToolsSC3</p>
+<p class="p3"><br></p>
+<p class="p2"><b>superclass: Object</b></p>
+<p class="p3"><br></p>
+<p class="p2">The MacroExpander adds the xx method to Strings. You can call predefined (for example in the startup file) macros, which can be either simple Strings, Strings with placeholders or functions with an arbitrary number of arguments. The macro-command is replaced with the result and selected (for easy execution). It is done to save some typing in Live Coding sessions.</p>
+<p class="p3"><br></p>
+<p class="p2">This is the basic syntax for a macro command, although it doesn't need the hash and arguments at all (for easy String macros).</p>
 <p class="p4">"command#arg1,arg2,arg3"<span class="s1">.xx</span></p>
-<p class="p2"><br></p>
-<p class="p3">It uses the Singleton Pattern. Most common operations are forwardded by class methods to an instance, which is created lazily. All command/macro pairs are stored in a Dictionary.</p>
-<p class="p2"><br></p>
-<p class="p3">It currently only works on Mac OS X and the replacement code is still very buggy.</p>
-<p class="p2"><br></p>
+<p class="p3"><br></p>
+<p class="p2">It uses the Singleton Pattern. Most common operations are forwardded by class methods to an instance, which is created lazily. All command/macro pairs are stored in a Dictionary.</p>
+<p class="p3"><br></p>
+<p class="p2">It currently only works on Mac OS X and the replacement code is still very buggy.</p>
+<p class="p3"><br></p>
 <p class="p5"><b>Methods:</b></p>
 <p class="p6"><br></p>
 <p class="p7"><b><span class="Apple-tab-span">	</span>*instance</b></p>

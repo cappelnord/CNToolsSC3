@@ -1,8 +1,12 @@
-/*	
-	Simon in SuperCollider3
-	Written by Patrick Borgeat <patrick@borgeat.de>
-	Last modified: 08/27/2009
+/*
+	Simon
+	(c) 2009 by Patrick Borgeat <patrick@borgeat.de>
+	http://www.cappel-nord.de
+	
+	Part of CNToolsSC3
+	http://github.com/cappelnord/CNToolsSC3
 */
+
 
 Simon
 {

@@ -1,14 +1,14 @@
 /*
-CNMidiEnvGen, a Midi CC Envelope Generator.
-
-Part of CNTools, http://www.cappel-nord.de
-
-Written by Patrick Borgeat <patrick@borgeat.de>, 2008
+	CNMidiEnvGen, a MIDI CC Envelope Generator
+	(c) 2008 by Patrick Borgeat <patrick@borgeat.de>
+	http://www.cappel-nord.de
+	
+	Part of CNToolsSC3
+	http://github.com/cappelnord/CNToolsSC3
 */
 
 CNMidiEnvGen
 {
-	var guiWindow;
 	var <> out;
 	var <> envSampleSize = 2048;
 	var <> chan;
@@ -20,7 +20,7 @@ CNMidiEnvGen
 		^super.new.init(midiOut, chan, ctlNum);
 	}
 	
-	init {| midiOut, chan, ctlNum |Ê// Hier Argumente
+	init {| midiOut, chan, ctlNum |
 	
 		this.out = midiOut;
 		this.chan = chan;
@@ -37,16 +37,10 @@ CNMidiEnvGen
 		var stepTime = envTime / envSampleSize;
 		var undersampleWarning = false;
 		
-		
 		var lastLocalValue, nextWaitTime;
 		
-		/* "envSignal".postln;
-		envSignal.postcs;
-		"envTime".postln;
-		envTime.postln; */
-		
-		// Nun ein nicht wirklich hŸbscher CodeBlock. Immerhin soll er selber merken
-		// ob der EnvGen mit zu niedriger Samplerate gesampelt worden ist.
+		// The following block of code isn't that pretty. It should find out
+		// for itself, if the EnvGen was sampled with a too low sample rate.
 		
 		lastLocalValue = envSignal[0].floor;
 		nextWaitTime = 0;
@@ -60,7 +54,7 @@ CNMidiEnvGen
 				
 				if(val != lastLocalValue,{
 				
-					// Erstmal schauen ob mšglicherweise Undersampling statgefunden hat, dann warnen!
+					// let's see if there might be some undersampling going on, then warn
 					if(((val - lastLocalValue).abs > 1) && undersampleWarning.not,{
 					
 						undersampleWarning = true;
@@ -72,7 +66,6 @@ CNMidiEnvGen
 					
 					out.control(chan,ctlNum,val);
 					lastValue = val;
-					// val.postln;
 					
 					nextWaitTime = 0;
 				

@@ -99,7 +99,7 @@ MacroExpander
 	// private
 	pr_splitArgs{|string|
 		string = string ? "";
-		^string.split($,);
+		^string.split($#);
 		// some cleanup?
 	}
 	

@@ -19,6 +19,7 @@ RecordingManager : Object
 	var <doNormalize, <doTrim, <doFade;
 	var <bitrate, <compressionCommand, <compressionExtension, <sampleFormat;
 	var <>lock = false;
+	var compressionIndex;
 		
 	classvar sampleOptions = #["int16", "int24", "float"];
 	
@@ -29,16 +30,16 @@ RecordingManager : Object
 							 
 	classvar bitrateOptions = #["32", "64", "96", "128", "160" ,"192", "256", "320"];
 
-	*new {|path, title|
+	*new {|path, title, compressionType|
 		path = path ? thisProcess.platform.recordingsDir;
 		title = title ? "Recording Manager";
-		^super.new.init(path, title);
+		^super.new.init(path, title, compressionType);
 	}
 	
-	init {|a_path, a_title|
+	init {|a_path, a_title, a_compressionType|
 	
 		var layout, compressionOptions;
-	
+		
 		path = a_path;
 		title = a_title;
 		
@@ -71,18 +72,32 @@ RecordingManager : Object
 		// to check which compressors are available on the system. 
 		compressionOptions = allCompressionOptions.select({|item| item[1].systemCmd <= 512;});
 		
-
+		// possibility to specify selected compression type.
+		// RecordingManager.new(compressionType: "mp3").	
+		if (a_compressionType.notNil){
+			compressionIndex = compressionOptions.detectIndex{ |item, i|
+				//e.g either "Lame MP3" or "mp3"
+				(item[0].asString == a_compressionType) || (item[3].asString == a_compressionType)		
+			};
+			if (compressionIndex == nil){
+				compressionIndex = 0;
+				"The defined compression type is not installed!".warn	
+			};
+		}{
+			compressionIndex = 0;
+		};
+		
 		StaticText.new(window, 130@20).string_("Compression Type:");
 
 		compressionMenu = PopUpMenu(window, 130@20);
 		compressionMenu.items_(compressionOptions.collect({|item| item[0]}));
-		compressionMenu.action_({
+		compressionMenu.value_(compressionIndex).action_({
 			compressionCommand = compressionOptions.at(compressionMenu.value).at(1) + compressionOptions.at(compressionMenu.value).at(2);
 			compressionExtension = compressionOptions[compressionMenu.value].at(3);
 			this.refreshFiles; // because extension may have changed... baaad!
 		});
-		compressionCommand = compressionOptions.at(0).at(1) + compressionOptions.at(0).at(2); // init
-		compressionExtension = compressionOptions.at(0).at(3); // init
+		compressionCommand = compressionOptions.at(compressionIndex).at(1) + compressionOptions.at(compressionIndex).at(2); // init
+		compressionExtension = compressionOptions.at(compressionIndex).at(3); // init
 		
 		StaticText.new(window, 10@20); // SPACER ???
 		doTrimButton = Button(window, 20@20);

@@ -13,23 +13,23 @@ p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica}
 p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Helvetica; min-height: 17.0px}
 p.p5 {margin: 0.0px 0.0px 0.0px 57.0px; text-indent: -57.0px; font: 12.0px Helvetica}
 p.p6 {margin: 0.0px 0.0px 0.0px 57.0px; text-indent: -57.0px; font: 12.0px Helvetica; min-height: 14.0px}
-p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #9d1c12}
+p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #8f2116}
 p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; min-height: 12.0px}
 p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #606060}
 span.s1 {font: 18.0px Helvetica}
-span.s2 {color: #0026b4}
+span.s2 {color: #002eaf}
 span.s3 {color: #000000}
-span.s4 {color: #9d1c12}
+span.s4 {color: #8f2116}
 span.Apple-tab-span {white-space:pre}
 </style>
 </head>
 <body>
-<p class="p1"><span class="s1"><b>UserSample<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span><b>lazyness rules!</b></p>
+<p class="p1"><span class="s1"><b>UserSample<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></span><b>because I'm lazy!</b></p>
 <p class="p1">Part of CNToolsSC3: http://github.com/cappelnord/CNToolsSC3</p>
 <p class="p2"><br></p>
 <p class="p1"><b>superclass: Object</b></p>
 <p class="p2"><br></p>
-<p class="p1">Hey Fats! Most of the time you have all your Samples in one Folder. Always writing the same path to get to my samples pissed me off. So i wrote a little class with some extra Functionality. The class can't be instantiated, it has only static methods and members. Calling new will redirect to Buffer.read and will return an Buffer. If the sample was allready loaded by UserSample it will somply return the Buffer. Don't forget to boot your Default Server.</p>
+<p class="p1">Most of the time you have all your Samples in one Folder. Always writing the same path to get to my samples was annoying. So i wrote a little class with some extra Functionality. The class can't be instantiated, it has only static methods and members. Calling new will redirect to Buffer.read and will return an Buffer. If the sample was allready loaded by UserSample it will somply return the Buffer. Don't forget to boot your Default Server.</p>
 <p class="p2"><br></p>
 <p class="p1">You have to edit your default sample path, either by editing the Sourcecode or by setting UserSample.base in your startup file.</p>
 <p class="p2"><br></p>
@@ -39,7 +39,7 @@ span.Apple-tab-span {white-space:pre}
 <p class="p4"><br></p>
 <p class="p5"><b><span class="Apple-tab-span">	</span>*new(path)</b></p>
 <p class="p6"><b><span class="Apple-tab-span">	</span></b></p>
-<p class="p5"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b>Returns a Buffer Object. If this is the first time it will shovel the samples up the servers ass.</p>
+<p class="p5"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b>Returns a Buffer Object. If this is the first time it will load the sample into a buffer.</p>
 <p class="p6"><span class="Apple-tab-span">	</span></p>
 <p class="p5"><span class="Apple-tab-span">	</span><b>*at(path)</b></p>
 <p class="p6"><b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b></p>
@@ -47,7 +47,7 @@ span.Apple-tab-span {white-space:pre}
 <p class="p6"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
 <p class="p5"><span class="Apple-tab-span">	</span>*<b>list</b></p>
 <p class="p6"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
-<p class="p5"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Lists some shit. What's the dillio?</p>
+<p class="p5"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Lists all Bufers.</p>
 <p class="p6"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
 <p class="p5"><b><span class="Apple-tab-span">	</span>*free(path)</b></p>
 <p class="p6"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
@@ -59,11 +59,11 @@ span.Apple-tab-span {white-space:pre}
 <p class="p6"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
 <p class="p3"><b>Code Example:</b></p>
 <p class="p4"><br></p>
-<p class="p7"><span class="s2">Server</span><span class="s3">.default.boot; </span>// Boot the shit!</p>
+<p class="p7"><span class="s2">Server</span><span class="s3">.default.boot; </span>// Boot the server</p>
 <p class="p8"><br></p>
 <p class="p9"><span class="s3">b = </span><span class="s2">UserSample</span><span class="s3">(</span>"crazyHipHopBITCH.aiff"<span class="s3">); </span><span class="s4">// now wait ...</span></p>
 <p class="p8"><br></p>
-<p class="p7"><span class="s3">b.play </span>// and roll, yay ... shit!</p>
+<p class="p7"><span class="s3">b.play </span>// and roll, yay ...</p>
 <p class="p2"><br></p>
 <p class="p6"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
 </body>

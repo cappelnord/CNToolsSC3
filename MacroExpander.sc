@@ -40,14 +40,21 @@ MacroExpander
 	expand {|cmd|
 		
 		var replacement = this.parseAndProcess(cmd);
-		
+		var cursorPos;
+				
 		(replacement.isNil.not).if {
-			this.pr_replace("\"" ++ cmd ++ "\".xx", replacement.asString);
+			cursorPos = replacement.find("%");
+			
+			cursorPos.isNil.not.if {
+				replacement = replacement.replace("%", "");
+			};
+			
+			this.pr_replace("\"" ++ cmd ++ "\".xx", replacement.asString, cursorPos);
 		};
 	}
 	
 	// private
-	pr_replace {|cmd, replacement|
+	pr_replace {|cmd, replacement, cursorPos|
 				
 		// this would be more sensible, if it wouldn't try to replace all occurences of the expand cmd. 
 		
@@ -58,7 +65,12 @@ MacroExpander
 		
 		Document.current.string_(string);
 		Document.current.syntaxColorize;
-		Document.current.selectRange(pos, replacement.size);
+		
+		cursorPos.isNil.if({
+			Document.current.selectRange(pos, replacement.size);
+		},{
+			Document.current.selectRange(pos + cursorPos,0);
+		});
 	}
 	
 	parseAndProcess {|cmd|

@@ -6,10 +6,11 @@ Underdocumented and totally random. Enjoy :-)
 BufferPool: A Pool of Buffers
 CNMidiEnvGen: Sends out an Env as CC Midi Messages
 Games (Simon & Minesweeper): Have fun with SuperCollider :-)
-MacroExpander: Inserts code snippets in your current document window
 NES2Freqs: Converts between Hz/MIDI-Notes and NES Cycles (for NES UGens)
 OSCemoteMultiTouch: A class for using the X/Y Multitouch Controller of OSCemote
 P196: String based Integer addition and some palindrome related functions
 ReChorder: Sketch of a Livesampling Instrument
 RecordingManager: GUI for postprocessing audiofiles recorded in SuperCollider
 UserSample: Loading samples for lazy people.
+
+Also check out my BenoitLib Git repo on GitHub.

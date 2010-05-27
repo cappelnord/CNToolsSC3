@@ -2,12 +2,12 @@ UserSample : Object
 {
 	classvar dict;
 	// you have to change this in order tu use it properly.
-	classvar <>base = "/Users/patrick/Documents/SuperCollider/samples/";
+	classvar <>base = "";
 	
 	*new {|path|
 		var buf;
 		dict.isNil.if {dict = Dictionary.new;};
-		Server.default.serverRunning.not.if {"Default Server is not running. (Are you a fucking Ass?)".throw;};
+		Server.default.serverRunning.not.if {"Default Server is not running.".throw;};
 		
 		dict.at(path).isNil.if ({
 			buf = Buffer.read(Server.default, base ++ path);
@@ -41,5 +41,26 @@ UserSample : Object
 			item.free;
 		};
 		dict = nil;
+	}
+}
+
+UserSampleDragNDrop : Object
+{
+	var path;
+	
+	*new {|p|
+		^super.new.init(p);
+	}
+	
+	init {|p|
+		path = p;	
+	}	
+	
+	asCompileString {
+		^"UserSample(\"" ++ path ++ "\")";	
+	}
+	
+	asString {
+		^path.basename;
 	}
 }

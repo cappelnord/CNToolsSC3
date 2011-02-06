@@ -50,7 +50,7 @@ RecordingManager : Object
 		
 		this.createDirs;
 		
-		window = SCWindow("RecordingManager", Rect(200,200,460,510), false);
+		window = Window("RecordingManager", Rect(200,200,460,510), false);
 		layout = window.addFlowLayout(10@10, 3@3);
 		
 		StaticText.new(window, 130@20).string_("Output Sample Format:");

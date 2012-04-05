@@ -2,7 +2,7 @@ PfuncRewrite : FilterPattern {
 	var <>func, <>levels;
 	
 	*new {|pattern, func, levels=1|
-		func = func ? {|in| in};
+		func = func ? {|in| [in]};
 		^super.new(pattern).func_(func).levels_(levels);
 	}
 	
@@ -23,7 +23,7 @@ PfuncRewrite : FilterPattern {
 		}, {
 			inVal.do {|val|
 				val = func.value(val);
-				(val.isKindOf(Collection).not).if {Êval = [val];};
+				(val.isKindOf(Collection).not).if { val = [val];};
 				this.prProcess(val, level-1);	
 			};
 		});

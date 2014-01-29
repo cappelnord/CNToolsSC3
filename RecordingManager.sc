@@ -26,7 +26,8 @@ RecordingManager : Object
 	// TODO: Find a Way to specify compressors with more sense. 
 	
 	classvar allCompressionOptions = #[	["Core Audio AAC", "afconvert", "-f m4af -d aac -b {BR}000 {IN} {OUT}", "m4a"], 
-							   		["Lame MP3", "/opt/local/bin/lame", "-b {BR} {IN} {OUT}", "mp3"]];
+							   		["Lame MP3 (Ports)", "/opt/local/bin/lame", "-b {BR} {IN} {OUT}", "mp3"],
+							   		["Lame MP3", "/usr/local/bin/lame", "-b {BR} {IN} {OUT}", "mp3"]];
 							 
 	classvar bitrateOptions = #["32", "64", "96", "128", "160" ,"192", "256", "320"];
 

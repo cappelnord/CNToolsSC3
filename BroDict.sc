@@ -35,4 +35,8 @@ BroDict : EnvironmentRedirect {
 		// default, cast as String for security reasons
 		^value.asString;	
 	}
+	
+	signal {|key|
+		this.put(key, 1);	
+	}
 }

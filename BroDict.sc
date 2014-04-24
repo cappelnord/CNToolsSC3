@@ -22,7 +22,9 @@ BroDict : EnvironmentRedirect {
 			payload = [this.asTransmittableValue(obj)];
 		});
 
-		net.sendMsg("/brodict", key.asString, *payload);		
+		net.isNil.not.if {
+			net.sendMsg("/brodict", key.asString, *payload);
+		};	
 	}
 	
 	asTransmittableValue {|value|

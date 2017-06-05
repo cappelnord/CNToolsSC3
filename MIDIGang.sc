@@ -119,7 +119,8 @@ MIDIGang {
 		};
 		
 		(mode != \osc).if {
-			value.postln;	
+			// value.postln;
+			// intern.postln;
 		};
 		
 		

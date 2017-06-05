@@ -297,7 +297,7 @@ RecordingManagerItem : Object
 	
 	
 	process {
-		var sf, outSf, data, dataOut, inPoint, outPoint, numSamples, numChannels, foundSound, fadePointer, peakAmp, ampMul, err;
+		var sf, sampleRate, outSf, data, dataOut, inPoint, outPoint, numSamples, numChannels, foundSound, fadePointer, peakAmp, ampMul, err;
 		
 		{manager.statusText.string_("Processing" + fileName ++ "...");}.defer;
 		
@@ -307,6 +307,8 @@ RecordingManagerItem : Object
 			
 			numChannels = sf.numChannels;
 			numSamples = sf.numChannels * sf.numFrames;
+			sampleRate = sf.sampleRate;
+			
 			data = FloatArray.newClear(numSamples);
 			sf.readData(data);
 			
@@ -387,6 +389,7 @@ RecordingManagerItem : Object
 			0.0001.wait;
 			outSf = SoundFile.new;
 			outSf.numChannels_(numChannels);
+			outSf.sampleRate_(sampleRate);
 			outSf.headerFormat_("AIFF");
 			outSf.sampleFormat_(manager.sampleFormat);
 			outSf.openWrite(processedPath);
